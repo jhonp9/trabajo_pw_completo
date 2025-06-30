@@ -30,7 +30,7 @@ export interface Game {
   images: string[];
   genres: string[];
   platforms: string[];
-  oferta: string;
+  oferta: string | null;
   requirements: {
     minimum: string[];
     recommended: string[];

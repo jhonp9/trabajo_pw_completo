@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
-import prisma from '../lib/prisma';
 import { gameSchema } from '../utils/validacion';
 import { Prisma } from '@prisma/client';
 import { Review } from '../types';
 import { RequestHandler } from 'express';
+import { PrismaClient } from '../generated/prisma';
 
 export const getGamesList = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const games = await prisma.game.findMany({
       include: { reviews: true }
@@ -17,6 +18,7 @@ export const getGamesList = async (req: Request, res: Response) => {
 };
 
 export const getGameDetails: RequestHandler = async (req, res, next) => {
+  const prisma = new PrismaClient();
   try {
     const game = await prisma.game.findUnique({
       where: { id: parseInt(req.params.id) },
@@ -35,6 +37,7 @@ export const getGameDetails: RequestHandler = async (req, res, next) => {
 };
 
 export const createGame = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const gameData = gameSchema.parse(req.body);
     const game = await prisma.game.create({
@@ -53,6 +56,7 @@ export const createGame = async (req: Request, res: Response) => {
 };
 
 export const updateGame = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const gameData = gameSchema.partial().parse(req.body);
     const game = await prisma.game.update({
@@ -68,6 +72,7 @@ export const updateGame = async (req: Request, res: Response) => {
 };
 
 export const deleteGame = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     await prisma.game.delete({ where: { id: parseInt(req.params.id) } });
     res.status(204).end();
@@ -77,6 +82,7 @@ export const deleteGame = async (req: Request, res: Response) => {
 };
 
 export const addGameReview = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const { author, rating, comment } = req.body;
     const gameId = parseInt(req.params.gameId);
@@ -112,6 +118,7 @@ export const addGameReview = async (req: Request, res: Response) => {
 };
 
 export const purchaseGame : RequestHandler = async (req, res, next) => {
+  const prisma = new PrismaClient();
   try {
     const { quantity = 1 } = req.body;
     const gameId = parseInt(req.params.gameId);

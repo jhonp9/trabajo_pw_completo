@@ -1,10 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import prisma from '../lib/prisma';
 import { JWT_SECRET } from '../utils/config';
 import { RequestHandler } from 'express';
+import { PrismaClient } from '../generated/prisma';
 
 export const authenticate : RequestHandler = async (req, res, next)=> {
+  const prisma = new PrismaClient();
   try {
     const token = req.cookies.token || req.headers.authorization?.split(' ')[1];
     

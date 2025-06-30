@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
-import prisma from '../lib/prisma';
 import { generateToken, comparePasswords, hashPassword } from '../utils/auth';
 import { loginSchema, registerSchema } from '../utils/validacion';
 import * as userService from '../services/user.service';
 import { RequestHandler } from 'express';
+import { PrismaClient } from '../generated/prisma';
 
 export const login : RequestHandler = async (req, res, next) => {
   try {
@@ -38,6 +38,7 @@ export const login : RequestHandler = async (req, res, next) => {
 };
 
 export const register : RequestHandler = async (req, res, next) => {
+  const prisma = new PrismaClient();
   try {
     const { email, name, password } = registerSchema.parse(req.body);
     

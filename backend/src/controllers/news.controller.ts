@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
-import prisma from '../lib/prisma';
 import { RequestHandler } from 'express';
+import { PrismaClient } from '../generated/prisma';
 
 export const getNewsList = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const news = await prisma.news.findMany({
       orderBy: { createdAt: 'desc' }
@@ -14,6 +15,7 @@ export const getNewsList = async (req: Request, res: Response) => {
 };
 
 export const getNewsItem : RequestHandler = async (req, res, next) => {
+  const prisma = new PrismaClient();
   try {
     const newsItem = await prisma.news.findUnique({
       where: { id: req.params.id }
@@ -30,6 +32,7 @@ export const getNewsItem : RequestHandler = async (req, res, next) => {
 };
 
 export const createNews = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const { title, content, image } = req.body;
     const author = req.user?.name || 'Anónimo';
@@ -50,6 +53,7 @@ export const createNews = async (req: Request, res: Response) => {
 };
 
 export const updateNews = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const { title, content, image } = req.body;
     const newsItem = await prisma.news.update({
@@ -63,6 +67,7 @@ export const updateNews = async (req: Request, res: Response) => {
 };
 
 export const deleteNews = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     await prisma.news.delete({ where: { id: req.params.id } });
     res.status(204).end();

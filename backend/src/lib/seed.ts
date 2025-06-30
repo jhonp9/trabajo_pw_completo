@@ -1,5 +1,6 @@
-import { PrismaClient } from '@prisma/client';
+
 import bcrypt from 'bcrypt';
+import { PrismaClient } from '../generated/prisma';
 const prisma = new PrismaClient();
 
 async function main() {
@@ -36,15 +37,7 @@ async function main() {
             minimum: ["CPU: Intel Core i5-2500K", "GPU: NVIDIA GTX 660", "RAM: 6GB"],
             recommended: ["CPU: Intel Core i7-3770", "GPU: NVIDIA GTX 770", "RAM: 8GB"]
             },
-            trailerUrl: "Nthv4xF_zHU",
-            reviews: [
-            {
-                id: "1",
-                author: "ola",
-                rating: 4,
-                comment: "bueno",
-                date: "mayo"
-        }]
+            trailerUrl: "Nthv4xF_zHU"
         },
         {
             id: 2,
@@ -61,15 +54,7 @@ async function main() {
             minimum: ["CPU: Intel Core i5-3570K", "GPU: NVIDIA GTX 780", "RAM: 8GB"],
             recommended: ["CPU: Intel Core i7-4790", "GPU: NVIDIA GTX 1060", "RAM: 12GB"]
             },
-            trailerUrl: "8X2kIfS6fb8",
-            reviews: [
-            {
-                id: "1",
-                author: "ola",
-                rating: 4,
-                comment: "bueno",
-                date: "mayo"
-            }]
+            trailerUrl: "8X2kIfS6fb8"
         },
         {
             id: 3,
@@ -86,16 +71,7 @@ async function main() {
             minimum: ["CPU: Intel Core i5-2500K", "GPU: NVIDIA GTX 770", "RAM: 8GB"],
             recommended: ["CPU: Intel Core i7-4770K", "GPU: NVIDIA GTX 1060", "RAM: 12GB"]
             },
-            trailerUrl: "MyaYlbizpvs",
-            reviews: [
-            {
-                id: "1",
-                author: "JuanP",
-                rating: 5,
-                comment: "La mejor experiencia del oeste jamás creada",
-                date: "Noviembre 2023"
-            }
-            ]
+            trailerUrl: "MyaYlbizpvs"
         },
         {
             id: 4,
@@ -112,16 +88,7 @@ async function main() {
             minimum: ["CPU: Intel Core i5-8400", "GPU: NVIDIA GTX 1060", "RAM: 12GB"],
             recommended: ["CPU: Intel Core i7-8700K", "GPU: NVIDIA GTX 1070", "RAM: 16GB"]
             },
-            trailerUrl: "E3Huy2cdih0",
-            reviews: [
-            {
-                id: "1",
-                author: "DarkSoulsFan",
-                rating: 5,
-                comment: "Obra maestra de FromSoftware",
-                date: "Febrero 2023"
-            }
-            ]
+            trailerUrl: "E3Huy2cdih0"
         },
         {
             id: 5,
@@ -138,16 +105,7 @@ async function main() {
             minimum: ["CPU: N/A", "GPU: N/A", "RAM: N/A"],
             recommended: ["CPU: N/A", "GPU: N/A", "RAM: N/A"]
             },
-            trailerUrl: "F3jePdO9_jc",
-            reviews: [
-            {
-                id: "1",
-                author: "KratosLover",
-                rating: 5,
-                comment: "Espectacular en todos los aspectos",
-                date: "Diciembre 2022"
-            }
-            ]
+            trailerUrl: "F3jePdO9_jc"
         },
         {
             id: 6,
@@ -164,16 +122,7 @@ async function main() {
             minimum: ["CPU: N/A", "GPU: N/A", "RAM: N/A"],
             recommended: ["CPU: N/A", "GPU: N/A", "RAM: N/A"]
             },
-            trailerUrl: "sjxLF4IYnJc",
-            reviews: [
-            {
-                id: "1",
-                author: "ZeldaFan",
-                rating: 5,
-                comment: "Superó todas mis expectativas",
-                date: "Mayo 2023"
-            }
-            ]
+            trailerUrl: "sjxLF4IYnJc"
         },
         {
             id: 7,
@@ -190,16 +139,7 @@ async function main() {
             minimum: ["CPU: AMD Ryzen 5 2600X", "GPU: AMD RX 5700", "RAM: 16GB"],
             recommended: ["CPU: AMD Ryzen 5 3600X", "GPU: NVIDIA RTX 2080", "RAM: 16GB"]
             },
-            trailerUrl: "kfYEiTdsyas",
-            reviews: [
-            {
-                id: "1",
-                author: "SpaceExplorer",
-                rating: 4,
-                comment: "Ambicioso pero con algunos problemas técnicos",
-                date: "Septiembre 2023"
-            }
-            ]
+            trailerUrl: "kfYEiTdsyas"
         },
         {
             id: 8,
@@ -216,16 +156,7 @@ async function main() {
             minimum: ["CPU: Intel Core i5-6600", "GPU: NVIDIA GTX 960", "RAM: 8GB"],
             recommended: ["CPU: Intel Core i7-8700", "GPU: NVIDIA GTX 1080 Ti", "RAM: 16GB"]
             },
-            trailerUrl: "S6GTl_vPRvU",
-            reviews: [
-            {
-                id: "1",
-                author: "PotterHead",
-                rating: 5,
-                comment: "El sueño de todo fan de Harry Potter hecho juego",
-                date: "Febrero 2023"
-            }
-            ]
+            trailerUrl: "S6GTl_vPRvU"
         },
         {
             id: 9,
@@ -242,16 +173,7 @@ async function main() {
             minimum: ["CPU: Intel i5-4690", "GPU: NVIDIA GTX 970", "RAM: 8GB"],
             recommended: ["CPU: Intel i7-8700K", "GPU: NVIDIA RTX 2060", "RAM: 16GB"]
             },
-            trailerUrl: "OcP0WdH7rTs",
-            reviews: [
-            {
-                id: "1",
-                author: "DnDFanatic",
-                rating: 5,
-                comment: "El mejor RPG en décadas, absolutamente imprescindible",
-                date: "Agosto 2023"
-            }
-            ]
+            trailerUrl: "OcP0WdH7rTs"
         },
         {
             id: 10,
@@ -268,16 +190,7 @@ async function main() {
             minimum: ["CPU: N/A", "GPU: N/A", "RAM: N/A"],
             recommended: ["CPU: N/A", "GPU: N/A", "RAM: N/A"]
             },
-            trailerUrl: "cXSpEmPmbfc",
-            reviews: [
-            {
-                id: "1",
-                author: "SpideyFan",
-                rating: 5,
-                comment: "La mejor experiencia de Spider-Man hasta la fecha",
-                date: "Octubre 2023"
-            }
-            ]
+            trailerUrl: "cXSpEmPmbfc"
         },
         {
             id: 11,
@@ -294,16 +207,7 @@ async function main() {
             minimum: ["CPU: Ryzen 5 2600X", "GPU: RTX 2060", "RAM: 16GB"],
             recommended: ["CPU: Ryzen 7 3700X", "GPU: RTX 3060", "RAM: 16GB"]
             },
-            trailerUrl: "dlQ3FeNu5Yw",
-            reviews: [
-            {
-                id: "1",
-                author: "HorrorLover",
-                rating: 5,
-                comment: "Terror psicológico magistral con una narrativa absorbente",
-                date: "Noviembre 2023"
-            }
-            ]
+            trailerUrl: "dlQ3FeNu5Yw"
         },
         {
             id: 12,
@@ -320,16 +224,7 @@ async function main() {
             minimum: ["CPU: N/A", "GPU: N/A", "RAM: N/A"],
             recommended: ["CPU: N/A", "GPU: N/A", "RAM: N/A"]
             },
-            trailerUrl: "gV5rIW1Qums",
-            reviews: [
-            {
-                id: "1",
-                author: "FFLegend",
-                rating: 4,
-                comment: "Combate espectacular aunque la historia pierde fuelle",
-                date: "Julio 2023"
-            }
-            ]
+            trailerUrl: "gV5rIW1Qums"
         }
         ]
     });
@@ -337,26 +232,26 @@ async function main() {
         data: [
             {
                 id: '1',
-                titulo: 'Lanzamiento del nuevo juego exclusivo',
-                contenido: 'Estamos emocionados de anunciar el lanzamiento de nuestro nuevo juego exclusivo que revolucionará la industria de los videojuegos con gráficos de última generación y una jugabilidad innovadora.',
-                fecha: '15 Junio 2023',
-                imagen: 'https://via.placeholder.com/600x400?text=Nuevo+Juego',
-                autor: 'Equipo Editorial'
+                title: 'Lanzamiento del nuevo juego exclusivo',
+                content: 'Estamos emocionados de anunciar el lanzamiento de nuestro nuevo juego exclusivo que revolucionará la industria de los videojuegos con gráficos de última generación y una jugabilidad innovadora.',
+                date: '15 Junio 2023',
+                image: 'https://via.placeholder.com/600x400?text=Nuevo+Juego',
+                author: 'Equipo Editorial'
             },
             {
                 id: '2',
-                titulo: 'Actualización importante del servidor',
-                contenido: 'El próximo martes realizaremos una actualización importante del servidor que mejorará el rendimiento y añadirá nuevas características solicitadas por la comunidad.',
-                fecha: '10 Junio 2023',
-                autor: 'Administrador del Sistema'
+                title: 'Actualización importante del servidor',
+                content: 'El próximo martes realizaremos una actualización importante del servidor que mejorará el rendimiento y añadirá nuevas características solicitadas por la comunidad.',
+                date: '10 Junio 2023',
+                author: 'Administrador del Sistema'
             },
             {
                 id: '3',
-                titulo: 'Evento especial de verano',
-                contenido: 'Participa en nuestro evento especial de verano con premios exclusivos, descuentos en juegos seleccionados y torneos emocionantes. ¡No te lo pierdas!',
-                fecha: '1 Junio 2023',
-                imagen: 'https://via.placeholder.com/600x400?text=Evento+Verano',
-                autor: 'Equipo de Eventos'
+                title: 'Evento especial de verano',
+                content: 'Participa en nuestro evento especial de verano con premios exclusivos, descuentos en juegos seleccionados y torneos emocionantes. ¡No te lo pierdas!',
+                date: '1 Junio 2023',
+                image: 'https://via.placeholder.com/600x400?text=Evento+Verano',
+                author: 'Equipo de Eventos'
             }
         ]
     });

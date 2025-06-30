@@ -1,8 +1,9 @@
 import { Request, Response } from 'express';
-import prisma from '../lib/prisma';
 import { RequestHandler } from 'express';
+import { PrismaClient } from '../generated/prisma';
 
 export const getUsersList = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const users = await prisma.user.findMany({
       select: {
@@ -20,6 +21,7 @@ export const getUsersList = async (req: Request, res: Response) => {
 };
 
 export const getUserDetails : RequestHandler = async (req, res, next) => {
+  const prisma = new PrismaClient();
   try {
     const user = await prisma.user.findUnique({
       where: { id: parseInt(req.params.id) },
@@ -51,6 +53,7 @@ export const getUserDetails : RequestHandler = async (req, res, next) => {
 };
 
 export const updateUser = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     const { name, email, role } = req.body;
     const user = await prisma.user.update({
@@ -71,6 +74,7 @@ export const updateUser = async (req: Request, res: Response) => {
 };
 
 export const deleteUser = async (req: Request, res: Response) => {
+  const prisma = new PrismaClient();
   try {
     await prisma.user.delete({ where: { id: parseInt(req.params.id) } });
     res.status(204).end();

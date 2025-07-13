@@ -20,10 +20,21 @@ model User {
   name            String
   password        String
   role            String   @default("USER")
+  verified        Boolean  @default(false)
   purchasedGames  Game[]   @relation("PurchasedGames")
   reviews         Review[]
+  VerificationCode VerificationCode[]
   createdAt       DateTime @default(now())
   updatedAt       DateTime @default(now())
+}
+
+model VerificationCode {
+  id        Int      @id @default(autoincrement())
+  code      String
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+  expiresAt DateTime
+  createdAt DateTime @default(now())
 }
 
 model Game {

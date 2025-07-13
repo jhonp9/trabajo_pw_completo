@@ -3,7 +3,10 @@ export interface User {
   email: string;
   name: string;
   role: 'admin' | 'user';
+  verified?: boolean;
   password?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 export interface Review {
   id: string;
